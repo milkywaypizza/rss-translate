@@ -28,8 +28,11 @@ secs=config.sections()
 
 
 
-def get_cfg(sec,name):
-    return config.get(sec,name).strip('"')
+def get_cfg(sec, name):
+    try:
+        return config.get(sec, name).strip('"')
+    except:
+        return ""
 
 def set_cfg(sec,name,value):
     config[sec][name]='"%s"'%value
