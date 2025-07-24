@@ -27,12 +27,8 @@ config.read_string(ini_data)
 secs=config.sections()
 
 
-
 def get_cfg(sec, name):
-    try:
-        return config.get(sec, name).strip('"')
-    except:
-        return ""
+    return config.get(sec, name, fallback="").strip('"')
 
 def set_cfg(sec,name,value):
     config[sec][name]='"%s"'%value
